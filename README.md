@@ -1,6 +1,6 @@
 # Laravel Nova Phone Number Field
 
-A Laravel Nova field to format and validate phone numbers.
+A Laravel Nova field to format using a dynamic input mask and additional phone number validation.
 
 **NOTE: This field utilizes [Propaganistas / Laravel-Phone package](https://github.com/Propaganistas/Laravel-Phone) for validation.**
 
@@ -11,7 +11,7 @@ A Laravel Nova field to format and validate phone numbers.
 To install this tool, use the installation code below:
 
 ```
-composer require dniccum/nova-phone-number
+composer require dniccum/phone-number
 ```
 
 ## Code
