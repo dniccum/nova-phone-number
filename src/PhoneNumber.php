@@ -15,7 +15,7 @@ class PhoneNumber extends Field
 
     public $countriesToValidate = 'US';
 
-    public $validation = false;
+    public $ignoreValidation = false;
 
     /**
      * Tells the VueJS component what format to implement on the mask
@@ -108,7 +108,7 @@ class PhoneNumber extends Field
      */
     public function disableValidation(bool $ignore=true)
     {
-        $this->validation = $ignore;
+        $this->ignoreValidation = $ignore;
 
         $this->withMeta([
             'disableValidation' => $ignore
@@ -128,7 +128,7 @@ class PhoneNumber extends Field
         $this->rules = is_string($rules) ? func_get_args() : $rules;
         $phoneValidationRules = [];
 
-        if ($this->validation) {
+        if ($this->ignoreValidation === false) {
             $phoneValidationRules = ["phone:".$this->countriesToValidate];
         }
 
