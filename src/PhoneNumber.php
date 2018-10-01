@@ -85,6 +85,8 @@ class PhoneNumber extends Field
     public function country(string $country="US")
     {
         $this->countriesToValidate = $country;
+
+        return $this;
     }
 
     /**
