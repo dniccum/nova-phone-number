@@ -15,7 +15,14 @@ class PhoneNumber extends Field
 
     public $countriesToValidate = 'US';
 
-    public $validation = false;
+    public $ignoreValidation = false;
+
+    public function __construct(string $name, ?string $attribute = null, ?mixed $resolveCallback = null)
+    {
+        parent::__construct($name, $attribute, $resolveCallback);
+
+        $this->setRules();
+    }
 
     /**
      * Tells the VueJS component what format to implement on the mask
@@ -86,6 +93,8 @@ class PhoneNumber extends Field
     {
         $this->countriesToValidate = $country;
 
+        $this->setRules();
+
         return $this;
     }
 
@@ -98,6 +107,8 @@ class PhoneNumber extends Field
     {
         $this->countriesToValidate = implode(',', $countries);
 
+        $this->setRules();
+
         return $this;
     }
 
@@ -108,11 +119,13 @@ class PhoneNumber extends Field
      */
     public function disableValidation(bool $ignore=true)
     {
-        $this->validation = $ignore;
+        $this->ignoreValidation = $ignore;
 
         $this->withMeta([
             'disableValidation' => $ignore
         ]);
+
+        $this->setRules();
 
         return $this;
     }
@@ -126,17 +139,28 @@ class PhoneNumber extends Field
     public function rules($rules)
     {
         $this->rules = is_string($rules) ? func_get_args() : $rules;
+
+        $this->setRules();
+
+        return $this;
+
+    }
+
+    /**
+     * Sets the rules for the class
+     *
+     * @return void
+     */
+    private function setRules()
+    {
         $phoneValidationRules = [];
 
-        if ($this->validation) {
+        if ($this->ignoreValidation === false) {
             $phoneValidationRules = ["phone:".$this->countriesToValidate];
         }
 
         $this->rules = array_merge_recursive(
             $phoneValidationRules, $this->rules
         );
-
-        return $this;
-
     }
 }
