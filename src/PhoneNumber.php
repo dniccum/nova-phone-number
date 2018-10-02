@@ -17,6 +17,13 @@ class PhoneNumber extends Field
 
     public $ignoreValidation = false;
 
+    public function __construct(string $name, ?string $attribute = null, ?mixed $resolveCallback = null)
+    {
+        parent::__construct($name, $attribute, $resolveCallback);
+
+        $this->setRules();
+    }
+
     /**
      * Tells the VueJS component what format to implement on the mask
      * @param string $newFormat
@@ -86,6 +93,8 @@ class PhoneNumber extends Field
     {
         $this->countriesToValidate = $country;
 
+        $this->setRules();
+
         return $this;
     }
 
@@ -97,6 +106,8 @@ class PhoneNumber extends Field
     public function countries(array $countries)
     {
         $this->countriesToValidate = implode(',', $countries);
+
+        $this->setRules();
 
         return $this;
     }
@@ -114,6 +125,8 @@ class PhoneNumber extends Field
             'disableValidation' => $ignore
         ]);
 
+        $this->setRules();
+
         return $this;
     }
 
@@ -126,6 +139,20 @@ class PhoneNumber extends Field
     public function rules($rules)
     {
         $this->rules = is_string($rules) ? func_get_args() : $rules;
+
+        $this->setRules();
+
+        return $this;
+
+    }
+
+    /**
+     * Sets the rules for the class
+     *
+     * @return void
+     */
+    private function setRules()
+    {
         $phoneValidationRules = [];
 
         if ($this->ignoreValidation === false) {
@@ -135,8 +162,5 @@ class PhoneNumber extends Field
         $this->rules = array_merge_recursive(
             $phoneValidationRules, $this->rules
         );
-
-        return $this;
-
     }
 }
