@@ -3,6 +3,7 @@
 namespace Dniccum\PhoneNumber;
 
 use Laravel\Nova\Fields\Field;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class PhoneNumber extends Field
 {
@@ -20,8 +21,13 @@ class PhoneNumber extends Field
     public function __construct(string $name, ?string $attribute = null, ?mixed $resolveCallback = null)
     {
         parent::__construct($name, $attribute, $resolveCallback);
+    }
 
+    public function resolve($resource, $attribute = null)
+    {
         $this->setRules();
+
+        return parent::resolve($resource, $attribute);
     }
 
     /**
@@ -93,9 +99,7 @@ class PhoneNumber extends Field
     {
         $this->countriesToValidate = $country;
 
-        $this->setRules();
-
-        return $this;
+        return $this->setRules();
     }
 
     /**
@@ -107,9 +111,7 @@ class PhoneNumber extends Field
     {
         $this->countriesToValidate = implode(',', $countries);
 
-        $this->setRules();
-
-        return $this;
+        return $this->setRules();
     }
 
     /**
@@ -140,10 +142,7 @@ class PhoneNumber extends Field
     {
         $this->rules = is_string($rules) ? func_get_args() : $rules;
 
-        $this->setRules();
-
-        return $this;
-
+        return $this->setRules();
     }
 
     /**
@@ -162,5 +161,7 @@ class PhoneNumber extends Field
         $this->rules = array_merge_recursive(
             $phoneValidationRules, $this->rules
         );
+
+        return $this;
     }
 }
