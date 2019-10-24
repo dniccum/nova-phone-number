@@ -154,8 +154,12 @@ class PhoneNumber extends Field
     {
         $phoneValidationRules = [];
 
-        if ($this->ignoreValidation === false && !$this->nullable) {
+        if ($this->ignoreValidation === false) {
             $phoneValidationRules = ["phone:".$this->countriesToValidate];
+
+            if ($this->nullable) {
+                array_push($phoneValidationRules, 'nullable');
+            }
         }
 
         $this->rules = array_merge_recursive(
