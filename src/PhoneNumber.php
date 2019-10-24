@@ -154,7 +154,7 @@ class PhoneNumber extends Field
     {
         $phoneValidationRules = [];
 
-        if ($this->ignoreValidation === false) {
+        if ($this->ignoreValidation === false && !$this->nullable) {
             $phoneValidationRules = ["phone:".$this->countriesToValidate];
         }
 
