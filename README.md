@@ -21,7 +21,7 @@ With the introduction of the new [Placeholder Method](https://nova.laravel.com/r
 If you are using Laravel Nova < 3.9, **please use the following command to install this package:**
 
 ```
-composer require dniccum/phone-number:1.0.*
+composer require dniccum/phone-number:~1.0.0
 ```
 
 ## Code
