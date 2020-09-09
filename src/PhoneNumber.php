@@ -43,15 +43,22 @@ class PhoneNumber extends Field
     }
 
     /**
-     * Sets a custom placeholder
-     * @param string $newPlaceholder
-     * @return PhoneNumber
+     * Set the placeholder text for the field if supported.
+     *
+     * @param string $text
+     * @return $this
      */
-    public function placeholder(string $newPlaceholder)
+    public function placeholder($text)
     {
-        return $this->withMeta([
-            'placeholder' => $newPlaceholder
+        $this->placeholder = $text;
+        $this->withMeta([
+            'placeholder' => $text,
+            'extraAttributes' => [
+                'placeholder' => $text
+            ]
         ]);
+
+        return $this;
     }
 
     /**
