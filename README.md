@@ -1,4 +1,8 @@
-# Laravel Nova Phone Number Field
+![Laravel Nova Phone Number Field](https://github.com/dniccum/nova-phone-number/blob/master/screenshots/nova-phone-number-input-social-image.png?raw=true)
+
+[![Latest Version on Packagist](https://poser.pugx.org/dniccum/phone-number/v/stable?format=flat-square&color=#0E7FC0)](https://packagist.org/packages/dniccum/phone-number)
+[![License](https://poser.pugx.org/dniccum/phone-number/license?format=flat-square)](https://packagist.org/packages/dniccum/phone-number)
+[![Total Downloads](https://poser.pugx.org/dniccum/phone-number/downloads?format=flat-square)](https://packagist.org/packages/dniccum/phone-number)
 
 A Laravel Nova field to format using a dynamic input mask and additional phone number validation.
 
