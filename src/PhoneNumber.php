@@ -18,7 +18,7 @@ class PhoneNumber extends Field
 
     public $ignoreValidation = false;
 
-    public function __construct(string $name, ?string $attribute = null, ?mixed $resolveCallback = null)
+    public function __construct(string $name, ?string $attribute = null, mixed $resolveCallback = null)
     {
         parent::__construct($name, $attribute, $resolveCallback);
     }
