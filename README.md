@@ -172,6 +172,9 @@ Render's the phone number as a clickable link on the detail view.
 ## Credits
 
 * [Doug Niccum](https://github.com/dniccum)
+* [Braden Keith](https://github.com/bradenkeith)
+* [lintaba](https://github.com/lintaba)
+* [Maxim Kot](https://github.com/batFormat)
 
 ## License
 
