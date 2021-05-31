@@ -1,5 +1,5 @@
 {
-    "name": "dniccum/phone-number",
+    "name": "tysonlt/phone-number",
     "description": "A Laravel Nova phone number field with input masking and validation support.",
     "keywords": [
         "laravel",

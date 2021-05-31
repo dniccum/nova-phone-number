@@ -6,7 +6,7 @@
 export default {
     props: ['resourceName', 'field'],
     beforeMount() {
-        if (this.field.linkOnIndex) {
+        if (this.field.linkOnIndex && this.field.value) {
             this.field.value = `<a href="tel:${this.field.value}" class="text-primary">${this.field.value}</a>`
         }
     }
