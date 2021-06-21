@@ -147,7 +147,7 @@ class PhoneNumber extends Field
      */
     public function rules($rules)
     {
-        $this->rules = is_string($rules) ? func_get_args() : $rules;
+        parent::rules($rules);
 
         return $this->setRules();
     }
