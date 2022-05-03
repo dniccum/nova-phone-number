@@ -1,9 +1,20 @@
-import VueMask from 'v-mask';
+import IndexField from "./components/IndexField";
+import DetailField from "./components/DetailField";
+import FormField from "./components/FormField";
+// TODO: replace with a relevant version when it supports vue 3
+import { VueMaskDirective } from 'v-mask';
 
-Nova.booting((Vue, router) => {
-    Vue.use(VueMask);
+const vMaskV2 = VueMaskDirective;
+const vMaskV3 = {
+    beforeMount: vMaskV2.bind,
+    updated: vMaskV2.componentUpdated,
+    unmounted: vMaskV2.unbind
+};
 
-    Vue.component('index-phone-number', require('./components/IndexField.vue').default);
-    Vue.component('detail-phone-number', require('./components/DetailField.vue').default);
-    Vue.component('form-phone-number', require('./components/FormField.vue').default);
+Nova.booting((Vue) => {
+    Vue.directive('mask', vMaskV3);
+
+    Vue.component('index-phone-number', IndexField);
+    Vue.component('detail-phone-number', DetailField);
+    Vue.component('form-phone-number', FormField);
 })
