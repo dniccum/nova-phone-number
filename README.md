@@ -18,16 +18,6 @@ To install this tool, use the installation code below:
 composer require dniccum/phone-number
 ```
 
-### Version Note
-
-With the introduction of the new [Placeholder Method](https://nova.laravel.com/releases/3.9.0), this package now requires Nova version 3.9 or above.
-
-If you are using Laravel Nova < 3.9, **please use the following command to install this package:**
-
-```
-composer require dniccum/phone-number:~1.0.0
-```
-
 ## Code
 
 To use the field, add the following code to your Nova resource. As this is a field, all of the default field properties can be applied.
@@ -175,6 +165,7 @@ Render's the phone number as a clickable link on the detail view.
 * [Braden Keith](https://github.com/bradenkeith)
 * [lintaba](https://github.com/lintaba)
 * [Maxim Kot](https://github.com/batFormat)
+* [Shawn Heide](https://github.com/shawnheide)
 
 ## License
 
