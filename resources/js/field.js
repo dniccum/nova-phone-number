@@ -1,9 +1,13 @@
-import VueMask from 'v-mask';
+import Maska from 'maska'
 
-Nova.booting((Vue, router) => {
-    Vue.use(VueMask);
+import IndexField from './components/IndexField'
+import DetailField from './components/DetailField'
+import FormField from './components/FormField'
 
-    Vue.component('index-phone-number', require('./components/IndexField.vue').default);
-    Vue.component('detail-phone-number', require('./components/DetailField.vue').default);
-    Vue.component('form-phone-number', require('./components/FormField.vue').default);
+Nova.booting((app, router) => {
+    app.use(Maska);
+
+    app.component('index-phone-number', IndexField);
+    app.component('detail-phone-number', DetailField);
+    app.component('form-phone-number', FormField);
 })

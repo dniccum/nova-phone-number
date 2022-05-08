@@ -1,9 +1,22 @@
 let mix = require('laravel-mix')
 
-mix.js('resources/js/field.js', 'dist/js')
-   .sass('resources/sass/field.scss', 'dist/css')
-    .webpackConfig({
-        resolve: {
-            symlinks: false
-        }
-    })
+require('./nova.mix')
+
+// NOTE: stop .LICENSE FILES
+// REF: https://github.com/laravel-mix/laravel-mix/issues/2738
+mix.options({
+	terser: {
+		extractComments: false,
+		terserOptions: {
+			output: {
+				comments: false,
+			},
+		},
+	},
+});
+
+mix
+  .setPublicPath('dist')
+  .js('resources/js/field.js', 'js')
+  .vue({ version: 3 })
+  .nova('dniccum/phone-number')

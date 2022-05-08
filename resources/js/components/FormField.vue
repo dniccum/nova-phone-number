@@ -1,19 +1,15 @@
 <template>
-    <default-field :field="field">
-        <template slot="field">
+    <DefaultField :field="field" :errors="errors" :show-help-text="showHelpText">
+        <template #field>
             <input :id="field.name" type="tel"
                 class="w-full form-control form-input form-input-bordered"
                 :class="errorClasses"
                 :placeholder="placeholder"
-                v-mask="mask"
+                v-maska="mask"
                 v-model="value"
             />
-
-            <p v-if="hasError" class="help-text error-text my-2 text-danger">
-                {{ firstError }}
-            </p>
         </template>
-    </default-field>
+    </DefaultField>
 </template>
 
 <script>
