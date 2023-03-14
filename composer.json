@@ -26,7 +26,8 @@
         "php": "^8.0",
         "laravel/framework": "^9.0|^10.0",
         "propaganistas/laravel-phone": "^5.0",
-        "laravel/nova": "^4.0"
+        "laravel/nova": "^4.0",
+        "nova-kit/nova-packages-tool": "^1.0"
     },
     "autoload": {
         "psr-4": {
