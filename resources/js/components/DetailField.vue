@@ -8,7 +8,7 @@ export default {
     beforeMount() {
         if (this.field.linkOnDetail && this.field.value) {
             this.field.asHtml = true;
-            this.field.value = `<a href="tel:${this.field.value}" class="text-primary">${this.field.value}</a>`
+            this.field.value = `<a href="tel:${this.field.value}" class="link-default">${this.field.value}</a>`
         }
     }
 }
