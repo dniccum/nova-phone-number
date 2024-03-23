@@ -26,7 +26,7 @@
         "php": "^8.0|^8.2",
         "laravel/framework": "^9.0|^10.0|^11.0",
         "propaganistas/laravel-phone": "^5.2",
-        "laravel/nova": "^4.0",
+        "laravel/nova": "^4.33",
         "nova-kit/nova-packages-tool": "^1.0"
     },
     "autoload": {
