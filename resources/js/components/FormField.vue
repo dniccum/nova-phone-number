@@ -1,7 +1,7 @@
 <template>
-    <DefaultField :field="field" :errors="errors" :show-help-text="showHelpText">
+    <DefaultField :field="currentField" :errors="errors" :show-help-text="showHelpText">
         <template #field>
-            <input :id="field.name" type="tel"
+            <input :id="currentField.name" type="tel"
                 class="w-full form-control form-input form-input-bordered"
                 :class="errorClasses"
                 :placeholder="placeholder"
@@ -13,12 +13,12 @@
 </template>
 
 <script>
-import { FormField, HandlesValidationErrors } from 'laravel-nova'
+import { DependentFormField, HandlesValidationErrors } from 'laravel-nova'
 
 const defaultFormat = '(###) ###-####';
 
 export default {
-    mixins: [FormField, HandlesValidationErrors],
+    mixins: [DependentFormField, HandlesValidationErrors],
 
     props: ['resourceName', 'resourceId', 'field'],
 
