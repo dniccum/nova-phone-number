@@ -23,11 +23,11 @@ class PhoneNumber extends Field
         parent::__construct($name, $attribute, $resolveCallback);
     }
 
-    public function resolve($resource, $attribute = null)
+    public function resolve($resource, $attribute = null): void
     {
         $this->setRules();
 
-        return parent::resolve($resource, $attribute);
+        parent::resolve($resource, $attribute);
     }
 
     /**
